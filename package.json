@@ -1,0 +1,46 @@
+{
+  "name": "yemreak.com",
+  "version": "1.0.0",
+  "description": "Yemreak.com sitesi",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "public": "public"
+  },
+  "scripts": {
+    "test": "nodemon test",
+    "start": "node dist/index.js",
+    "dev": "set DEBUG=lib* & node tools/dev",
+    "devn": "set DEBUG=lib* & nodemon tools/dev",
+    "build": "mkdir dist & babel *.js lib/**/*.js -s -d dist & xcopy public dist\\public /s /i /e /y",
+    "build:db": "mkdir dist & babel *.js lib/**/*.js -s -d dist & xcopy public dist\\public /s /i /e /y & xcopy database dist\\database /s /i /e /y",
+    "build:start": "npm run-script build & npm run-script start",
+    "clean": "xcopy dist\\database database /s /i /e /y & rd /s /q dist",
+    "clean:all": "rd /s /q dist",
+    "rebuild": "npm run-script clean & npm run-script build",
+    "rebuild:db": "npm run-script clean & npm run-script build:db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/yedehrab/yemreak.com.git"
+  },
+  "keywords": [
+    "yemreak"
+  ],
+  "author": "Yunus Emre Ak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/yedehrab/yemreak.com/issues"
+  },
+  "homepage": "https://gitlab.com/yedehrab/yemreak.com#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "colors": "^1.3.3",
+    "debug": "^4.1.1",
+    "marked": "^0.6.1"
+  }
+}

@@ -1,0 +1,9 @@
+# Node dosyaları
+node_modules
+
+# Dist dosyaları
+# Heroku'ya dist dosyaları gönderilmeli
+# dist
+
+# İdea
+.idea
